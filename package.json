@@ -1,0 +1,49 @@
+{
+  "name": "resize-image-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.ts",
+    "build": "npx tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write 'src/**/*.ts'",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine && jest",
+    "jest": "npm run build && jest --detectOpenHandles --config jest.config.js",
+    "jest:init": "jest --init"
+  },
+  "author": "Ahmed Bahgat",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^3.10.3",
+    "@types/jest": "^27.4.0",
+    "@types/lodash": "^4.14.178",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^17.0.16",
+    "@types/nodemon": "^1.19.1",
+    "@types/sharp": "^0.29.5",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^4.0.2",
+    "jasmine-spec-reporter": "^7.0.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "prettier": "2.5.1",
+    "supertest": "^6.2.2",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
+    "sharp": "^0.30.1"
+  }
+}
