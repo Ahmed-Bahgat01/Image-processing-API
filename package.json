@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.ts",
+    "startdev": "nodemon src/server.ts",
+    "start": "node dist/server.js",
+    "quickstart": "npm install && npm run build && npm run start",
+    "quickstartdev" : "npm install && npm run build && npm run startdev",
     "build": "npx tsc",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
