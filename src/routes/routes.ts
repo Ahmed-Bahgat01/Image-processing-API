@@ -24,7 +24,7 @@ router.get('/resized', async (req: express.Request, res: express.Response) => {
     try {
       await resizeUtl.resize(imgName, imgWidth, imgHeight)
     } catch (error) {
-      res.send('something want wrong while resizing the image')
+      res.send('something went wrong while resizing the image')
     }
     res.sendFile(path.resolve(`${resizedDirPath}/${servedImgName}.jpg`))
   } else {

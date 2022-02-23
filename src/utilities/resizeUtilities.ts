@@ -54,8 +54,15 @@ export async function resize(
   imgName: string,
   imgWidth: number,
   imgHeight: number
-): Promise<void> {
-  await sharp(`public/images/${imgName}.jpg`)
-    .resize(imgWidth, imgHeight)
-    .toFile(`public/resized/${imgName}-edited-w${imgWidth}-h${imgHeight}.jpg`)
+): Promise<boolean> {
+  let isResised = false
+  try {
+    await sharp(`public/images/${imgName}.jpg`)
+      .resize(imgWidth, imgHeight)
+      .toFile(`public/resized/${imgName}-edited-w${imgWidth}-h${imgHeight}.jpg`)
+    isResised = true
+  } catch (error) {
+    isResised = false
+  }
+  return isResised
 }

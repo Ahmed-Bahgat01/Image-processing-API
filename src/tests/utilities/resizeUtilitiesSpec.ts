@@ -1,8 +1,10 @@
 import {
   isImgHere,
   isSameSize,
+  resize,
   wasServedBefore,
 } from '../../utilities/resizeUtilities'
+//import sharp from 'sharp'
 
 describe('isSameSize() suite', () => {
   it('should isSameSize(exist image, right w, right h) be ture', async () => {
@@ -109,5 +111,16 @@ describe('wasServedBefore() suite', () => {
       326
     )
     expect(result).toEqual(false)
+  })
+})
+
+describe('resize() suite', () => {
+  it('makes sure image resized in happy scenario', async () => {
+    const result = await resize('b', 20, 20)
+    expect(result).toBe(true)
+  })
+  it('return false when image not exist', async () => {
+    const result = await resize('wrong', 20, 20)
+    expect(result).toBe(false)
   })
 })
