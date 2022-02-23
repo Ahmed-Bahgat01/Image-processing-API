@@ -11,17 +11,26 @@ const inputValidate = (
   const imgWidth = req.query.width as string
   const imgHeight = req.query.height as string
   if (_.isEmpty(imgName)) {
-    res.send('filename parameter is empty')
-  } else if (_.isEmpty(imgWidth)) {
-    res.send('width parameter is empty')
-  } else if (_.isEmpty(imgHeight)) {
-    res.send('height parameter is empty')
-  } else if (
-    inputChecks.isValidSizeNum(parseInt(imgWidth)) &&
-    inputChecks.isValidSizeNum(parseInt(imgHeight)) &&
-    _.isString(imgName)
-  ) {
-    next()
+    res.send('filename parameter is missing please enter a filename')
   }
+  if (_.isEmpty(imgWidth)) {
+    res.send('width parameter is missing please enter a width')
+  }
+  if (_.isEmpty(imgHeight)) {
+    res.send('height parameter is missing please enter a height')
+  }
+  if (Number.isNaN(Number(imgWidth))) {
+    res.send('width should be a number')
+  }
+  if (Number.isNaN(Number(imgHeight))) {
+    res.send('height should be a number')
+  }
+  if (!inputChecks.isValidSizeNum(parseInt(imgWidth))) {
+    res.send('width should be between 0 and 10000')
+  }
+  if (!inputChecks.isValidSizeNum(parseInt(imgHeight))) {
+    res.send('height should be between 0 and 10000')
+  }
+  next()
 }
 export default inputValidate
