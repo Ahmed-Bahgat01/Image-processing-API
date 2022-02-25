@@ -28,7 +28,12 @@ router.get('/resized', async (req: express.Request, res: express.Response) => {
     }
     res.sendFile(path.resolve(`${resizedDirPath}/${servedImgName}.jpg`))
   } else {
-    res.send('Image not found')
+    try {
+      res.send('Image not found')
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(`Error sending "image not found": ${error}`)
+    }
   }
 })
 

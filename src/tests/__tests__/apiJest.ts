@@ -15,13 +15,15 @@ describe('bad scenarios', () => {
     const res = await request(app).get('/resized/?filename=a&width=100&height=')
     expect(res.statusCode).toEqual(200)
     expect(res.type).toEqual('text/html')
-    expect(res.text).toEqual('height parameter is empty')
+    expect(res.text).toEqual(
+      'height parameter is missing please enter a height'
+    )
   })
   it('missing width parameter value', async () => {
     const res = await request(app).get('/resized/?filename=a&width=&height=100')
     expect(res.statusCode).toEqual(200)
     expect(res.type).toEqual('text/html')
-    expect(res.text).toEqual('width parameter is empty')
+    expect(res.text).toEqual('width parameter is missing please enter a width')
   })
   it('missing filename parameter value', async () => {
     const res = await request(app).get(
@@ -29,7 +31,9 @@ describe('bad scenarios', () => {
     )
     expect(res.statusCode).toEqual(200)
     expect(res.type).toEqual('text/html')
-    expect(res.text).toEqual('filename parameter is empty')
+    expect(res.text).toEqual(
+      'filename parameter is missing please enter a filename'
+    )
   })
   it('requesting not exist image', async () => {
     const res = await request(app).get(
