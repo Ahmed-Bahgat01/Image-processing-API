@@ -16,7 +16,7 @@ Resize width and height of images
 1. Head to the project directory
 2. Simply run the following command
       ```bash
-      npm run start
+      npm run quickstart
       ```
       it will do the job of : (**install dependensies** then **build project** and **start the server on port 3000**)
 3. Start your bowser and head to the following link
